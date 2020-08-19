@@ -1,0 +1,21 @@
+//@Eric: log REST api 
+//put code below to index.php file to log all API requests
+if(!empty($_SERVER['REQUEST_URI']) &&
+	(strpos($_SERVER['REQUEST_URI'], 'rest/') !== false || strpos($_SERVER['REQUEST_URI'], 'soap/') !== false)) {
+		
+	$ip = '';
+	//Cloudflare
+	if (isset($_SERVER["HTTP_CF_CONNECTING_IP"])) {
+	  $ip = $_SERVER["HTTP_CF_CONNECTING_IP"];
+	}
+
+	//Fastly	
+	if (isset($_SERVER["HTTP_X_FORWARDED_FOR"])) {
+	  $ip = $_SERVER["HTTP_X_FORWARDED_FOR"];
+	}	
+	$array = ['req' => $_SERVER['REQUEST_URI'], 'ip' => $ip];
+	$writer = new \Zend\Log\Writer\Stream(BP . '/var/log/ApiLog-'.date('Ymd').'.log');
+	$logger = new \Zend\Log\Logger();
+	$logger->addWriter($writer);
+	$logger->info(print_r($array, true) . __FILE__ . ' - ' . __LINE__);
+}
