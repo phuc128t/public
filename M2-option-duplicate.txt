@@ -1,0 +1,13 @@
+//List all attirbute option and option name
+SELECT x.*, ev.value FROM `4omvsl66ykdqs`.eav_attribute_option x
+	inner join eav_attribute_option_value ev on x.option_id = ev.option_id
+WHERE attribute_id =81 order by option_id desc
+
+//attribute manufacturer=81
+//List all options duplicated for attribute manufacturer
+SELECT 81 as attr, option_id,`value`
+FROM `eav_attribute_option_value` 
+WHERE `value` IN(SELECT `value` FROM `eav_attribute_option_value` GROUP by `value` HAVING COUNT(`value`) > 1) 
+	and option_id in (SELECT option_id FROM `4omvsl66ykdqs`.eav_attribute_option x
+WHERE attribute_id =81)
+order by `value`,option_id asc
