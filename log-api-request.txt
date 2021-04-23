@@ -21,10 +21,10 @@ if(!empty($_SERVER['REQUEST_URI']) && strpos($_SERVER['REQUEST_URI'], '/carts/')
         $array = [
         	'req' => $_SERVER['REQUEST_URI'],
         	'ip' => $ip,
-        	'method' => $_SERVER['REQUEST_METHOD']
+        	'method' => $_SERVER['REQUEST_METHOD'],
         	'data' => file_get_contents('php://input')
         ];
-        $writer = new \Zend\Log\Writer\Stream(BP . '/var/log/ApiLog.log');
+        $writer = new \Zend\Log\Writer\Stream(BP . '/var/log/ApiLOG-'.date('Ymd').'.log');
         $logger = new \Zend\Log\Logger();
         $logger->addWriter($writer);
         $logger->info(print_r($array, true) . __FILE__ . ' - ' . __LINE__);
