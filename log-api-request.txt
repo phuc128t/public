@@ -1,6 +1,6 @@
 //@Eric: log REST api
 //put code below to index.php file to log all API requests
-if(!empty($_SERVER['REQUEST_URI']) && strpos($_SERVER['REQUEST_URI'], '/carts/') === false  &&
+if(!empty($_SERVER['REQUEST_URI']) && strpos($_SERVER['REQUEST_URI'], '/carts/') === false && strpos($_SERVER['REQUEST_URI'], '/guest-carts/') === false  &&
         (strpos($_SERVER['REQUEST_URI'], 'rest/') !== false || strpos($_SERVER['REQUEST_URI'], 'soap/') !== false)) {
         $ip = '';
         //Cloudflare
