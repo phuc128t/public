@@ -13,4 +13,4 @@ Let’s say you have an original file. You make some changes in it and save the 
 > patch -p0 < Filename.patch
 
 ## Create a patch for whole folder
-> diff -crB dir_original dir_updated > dfile.patch
+> diff -crB dir_original dir_updated > Filename.patch
