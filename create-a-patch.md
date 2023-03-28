@@ -10,7 +10,7 @@ Let’s say you have an original file. You make some changes in it and save the 
 #### Apply a patch file
 
 > patch -p1 < Filename.patch
-
+<br/>
 
 ## Create a patch using "diff"
 #### Create patch
