@@ -1,0 +1,5 @@
+Install Nodejs
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.36.0/install.sh | bash
+source ~/.bashrc
+nvm install 18.18.2
+nvm use 18.18.2
