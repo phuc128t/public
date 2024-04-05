@@ -1,5 +1,25 @@
-Install Nodejs
+#Install Nodejs
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.36.0/install.sh | bash
 source ~/.bashrc
-nvm install 18.18.2
-nvm use 18.18.2
+
+// list locally installed versions of node
+nvm ls
+
+// list remove available versions of node
+nvm ls-remote
+
+// install specific version of node
+nvm install 18.16.1
+
+// install latest LTS version of node (Long Term Support)
+nvm install --lts
+
+// install latest stable version of node
+nvm install stable
+
+// set default version of node
+nvm alias default 18.16.1
+
+// switch version of node
+nvm use 20.5.1
+
