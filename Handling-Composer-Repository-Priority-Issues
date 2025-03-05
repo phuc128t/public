@@ -1,0 +1,19 @@
+## Magento 2 projects typically rely on repo.magento.com for all core and Marketplace extensions. However, some extensions (like M2E TikTok Shop) are also available on Packagist and may update faster on Packagist than on Magento Marketplace.
+
+When a package exists in both repo.magento.com and packagist.org, and repo.magento.com is set as canonical (which is the default for Magento projects), Composer will always prefer repo.magento.com even if Packagist has newer versions. This leads to version conflicts when you want the newer version from Packagist.
+
+As for a possible workaround to perform the update, you can temporarily change the configuration for the repository in the Magento composer.json file. Configuration should be changed as follows:
+from
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://repo.magento.com/"
+        }
+to
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://repo.magento.com/",
+            "canonical":false,
+            "exclude": ["​m2e/tiktok-shop-adobe-commerce"]
+        }
