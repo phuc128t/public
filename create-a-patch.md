@@ -1,3 +1,6 @@
+## Create a patch using phpStorm
+Local History > Show History ...
+
 ## Create a patch using "git diff"
 #### Create patch
 Let’s say you have an original file. You make some changes in it and save the result to a new updated file.
