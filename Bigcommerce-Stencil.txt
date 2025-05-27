@@ -1,0 +1,13 @@
+# Install
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
+ 
+# Install Stencil CLI supported version of Node.js
+nvm install 20.16.0
+ 
+# Switch to Stencil CLI supported version of Node.js:
+nvm use 20.16.0
+ 
+# Install Stencil CLI
+npm install -g @bigcommerce/stencil-cli
+
+# Bigcommerce & Stencil CLI
